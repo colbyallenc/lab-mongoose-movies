@@ -1,0 +1,23 @@
+<h2> Add a Movie </h2>
+
+<% if (typeof validationErrors !== 'undefined') { %>
+  <ul>
+    <% for (key in validationErrors) { %>
+    <li>  <%= validationErrors[key].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+<br>
+
+<form method="post" action="/movies/new">
+  <label for="movie-title-input">Movie title</label>
+    <input id="movie-title-input" type="text" name="movieTitle" value="Enter Title Here" onblur="if (this.value == '') {this.value = 'Enter Title Here';}"
+      onfocus="if (this.value == 'Enter Title here') {this.value = '';}">
+   <label for="movie-genre-input"> Genre </label>
+    <input id="movie-genre-input" type="text" name="movieGenre">
+    <br>
+  <label for="movie-plot-input"> Catch Phrase</label>
+    <textarea id="movie-plot-input" name="moviePlot"></textarea>
+    <br>
+  <button>  Add Movie </button>
+</form>

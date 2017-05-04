@@ -1,0 +1,27 @@
+<h2>Search Movies</h2>
+
+<form action="/search" method="get">
+  <label for="search-term-input"> Search by Movie Title</label>
+  <input id="search-term-input" name="movieSearchTerm" type="search" value="Search Here...">
+    <br>
+  <button>Search</button>
+</form>
+
+<!-- <a href="/products/expensive"> D List Celebrities </a>
+  <br> <br>
+<a href="/products/value"> A List Celebrities </a> -->
+
+<% if (typeof movies !== 'undefined') { %>
+  <h2> Results </h2>
+  <ul>
+    <% movies.forEach((oneMovie) => { %>
+      <li>
+        <h3> <%= oneMovie.name %> </h3>
+        <p> Genre: $<%= oneMovie.genre %> </p>
+        <a href="/movies/<%= oneMovie._id %>">
+          View Details
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
